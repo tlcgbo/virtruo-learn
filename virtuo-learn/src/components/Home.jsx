@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import image1 from "../assets/image1.jpg";
 import { Link } from "react-router-dom";
+import About from "./About";
 
 function Home() {
   return (
@@ -53,7 +54,11 @@ function Home() {
             </Link>
           </div>
           
+
         </motion.div>
+
+      
+       
       </div>
     </>
   );
