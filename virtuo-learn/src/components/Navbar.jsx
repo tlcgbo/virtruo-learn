@@ -38,8 +38,8 @@ function Navbar() {
               <Link to="/">
 
               
-                <span className="text-4xl tracking-tight text-center ">
-                  Virtuo Learn
+                <span className="text-4xl  tracking-tight text-center ">
+                  Virtuo <span className="font-serif text-blue-600">Learn</span>
                 </span>
               </Link>
             </div>
@@ -84,7 +84,7 @@ function Navbar() {
               <div className="flex space-x-6">
      
                 <Link to="/login">
-                  <button className="py-2 px-3 text-black border rounded-md">Sign In</button>
+                  <button className="py-2 px-3 text-[10px] border rounded-md">Sign In</button>
                 </Link>
 
                 <Link to="/signup">

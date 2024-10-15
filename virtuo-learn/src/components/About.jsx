@@ -1,10 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import brush from "../assets/brush.png"
+import calender from "../assets/calender.png"
+import gear from "../assets/gear.png"
 
 function About() {
   return (
     <>
-      <div className=" relative mt-20 border-b border-neutral-800 min-h-[800px]">
+      <div className="text-serifs relative mt-20 border-b border-neutral-800 min-h-[800px]">
         <motion.div
           variants={{
             visible: { opacity: 1, y: 0 },
@@ -14,10 +17,10 @@ function About() {
           animate="visible"
           transition={{ duration: 0.5, delay: 0.25 }}
         >
-          <div className="text-center">
+          <div className="text-center ">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking wide">
               Why Virtuo
-              <span className=" underline hover:decoration-orange-600 bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
+              <span className=" underline font-serif decoration-orange-600 bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
                 {" "}
                 Learn works
               </span>
@@ -28,7 +31,11 @@ function About() {
           <div className=" flex flex-col lg:flex-row justify-between space-y-6 lg:space-y-0 lg:space-x-4 mt-10 lg:mt-20 ml-10 mr-10 ">
         
             <div className="flex-1 p-6 rounded-lg ">
+
+            <img src={calender} className="w-[200px]" alt="" />
               <h5 className="text-2xl mb-4">Flexible Learning Schedule</h5>
+
+              
               <p className="text-[15px] ">
                 Students can learn at their own pace, fitting education around
                 their personal schedules, work, or family life. No fixed class
@@ -39,6 +46,7 @@ function About() {
 
            
             <div className="flex-1 p-6 rounded-lg">
+            <img src={brush} className="w-[140px]" alt="" />
               <h5 className="text-2xl mb-4">Access from Anywhere</h5>
               <p className="text-[15px] ">
                 No geographical boundaries—students can access courses from
@@ -50,6 +58,7 @@ function About() {
 
            
             <div className="flex-1 p-6 rounded-lg ">
+            <img src={gear} className="w-[140px]" alt="" />
               <h5 className="text-2xl mb-4">Personalized Learning Experience</h5>
               <p className="text-[15px] ">
                 Virtuo Learn allows students to choose courses that match their

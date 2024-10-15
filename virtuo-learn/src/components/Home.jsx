@@ -33,7 +33,7 @@ function Home() {
               <h1 className="text-4xl sm:text-6xl lg:text-6xl font-serif text-left tracking-wide">
                 "Learning
                 <br />
-                <span className="bg-gradient-to-r underline hover:decoration-orange-600 from-blue-500 to-blue-800 text-transparent bg-clip-text">
+                <span className="bg-gradient-to-r underline decoration-orange-600 from-blue-500 to-blue-800 text-transparent bg-clip-text">
                   knows no boundaries"
                 </span>
               </h1>
@@ -42,24 +42,25 @@ function Home() {
           </div>
 
       
-          <p className="mt-10 text-xl text-center white max-w-4xl px-4 sm:px-10">
+          <p className="mt-10 text-[15px] text-center white max-w-4xl px-4 sm:px-10">
             At Virtuo Learn, we believe that learning should be an exciting adventure!<br></br> Dive into our world of engaging courses that fit your schedule, spark your curiosity,<br></br> and help you discover new passions—all from the comfort of your home! Join us and<br></br> turn your dreams into reality, one fun lesson at a time!
           </p>
 
           <div className="pt-10 flex flex-col sm:flex-row justify-center items-center sm:justify-end space-y-4 sm:space-y-0 sm:space-x-10">
             <Link to="/login">
-              <button className="py-2 text-2xl px-3 border rounded-md">
+              <button className="py-2 text-[15px] px-3 border rounded-md">
                 Sign In
               </button>
             </Link>
             <Link to="/signup">
-              <button className="bg-gradient-to-r text-white text-2xl from-blue-600 to-blue-900 py-2 px-3 rounded-md">
+              <button className="bg-gradient-to-r text-white text-[15px] from-blue-600 to-blue-900 py-2 px-3 rounded-md">
                 Create an account
               </button>
             </Link>
           </div>
         </motion.div>
 
+          <About />
     
       </div>
     </>
