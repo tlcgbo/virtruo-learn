@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import virtuolearn from "../assets/logo1.png"
+import logo from "../assets/start.png"
 import { Menu, X } from "lucide-react";
 
 function Navbar() {
@@ -15,9 +16,9 @@ function Navbar() {
       <nav className=" sticky top-0 z-50 py-3 backdrop-blur-lg border-b  border-neutral-700/80">
         <div className=" container px-4 mx-auto relative text-sm">
           <div className="flex justify-between items-center">
-            <ul className="hidden lg:flex text-[15px] space-x-12 text-left">
+            <ul className="hidden lg:flex font-serif text-[18px] space-x-12 text-left">
               <Link to="/">
-                <li className="hover:text-orange-600 mb-2">Home</li>
+                <li className="hover:text-orange-600  mb-2">Home</li>
               </Link>
 
               <Link to="/about">
@@ -38,9 +39,13 @@ function Navbar() {
               <Link to="/">
 
               
-                <span className="text-4xl  tracking-tight text-center ">
+                {/* <span className="text-4xl  tracking-tight text-center ">
+                 
                   Virtuo <span className="font-serif text-blue-600">Learn</span>
-                </span>
+                </span> */}
+
+                <img src={logo} className="w-48" alt="" />
+                
               </Link>
             </div>
             <div className="hidden lg:flex justify-center space-x-12 items-center">

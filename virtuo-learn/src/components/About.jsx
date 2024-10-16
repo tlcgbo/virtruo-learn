@@ -20,7 +20,7 @@ function About() {
           <div className="text-center ">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking wide">
               Why Virtuo
-              <span className=" underline font-serif decoration-orange-600 bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
+              <span className="  font-serif  bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
                 {" "}
                 Learn works
               </span>
