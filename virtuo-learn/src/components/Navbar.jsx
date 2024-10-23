@@ -37,13 +37,7 @@ function Navbar() {
             </ul>
             <div className="flex items-center mr-28">
               <Link to="/">
-
-              
-                {/* <span className="text-4xl  tracking-tight text-center ">
-                 
-                  Virtuo <span className="font-serif text-blue-600">Learn</span>
-                </span> */}
-
+            
                 <img src={logo} className="w-48" alt="" />
                 
               </Link>

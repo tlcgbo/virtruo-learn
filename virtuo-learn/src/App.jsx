@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import About from "./components/About";
 import "./App.css";
+import Login from "./components/Login";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
