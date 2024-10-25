@@ -8,6 +8,7 @@ import Profile from "./components/Profile";
 import About from "./components/About";
 import "./App.css";
 import Login from "./components/Login";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };
