@@ -28,6 +28,7 @@ function Navbar() {
               <Link to="/explore">
                 <li className="hover:text-orange-600 mb-2">Explore</li>
               </Link>
+
               <Link to="/login">
                 <li className="hover:text-orange-600 mb-2">Login</li>
               </Link>
@@ -43,6 +44,10 @@ function Navbar() {
               </Link>
             </div>
             <div className="hidden lg:flex justify-center space-x-12 items-center">
+
+            <Link to="/donate">
+                <button className="py-2 px-3 border rounded-md">Donate</button>
+              </Link>
 
               <Link to="/login">
                 <button className="py-2 px-3 border rounded-md">Sign In</button>
@@ -70,6 +75,8 @@ function Navbar() {
                   <li className="hover:text-orange-600 mb-2">About</li>
                 </Link>
 
+                
+
                 <Link to="/explore">
                   <li className="hover:text-orange-600 mb-2">Explore</li>
                 </Link>
@@ -81,7 +88,7 @@ function Navbar() {
                 </Link>
               </ul>
               <div className="flex space-x-6">
-     
+               
                 <Link to="/login">
                   <button className="py-2 px-3 text-[10px] border rounded-md">Sign In</button>
                 </Link>
@@ -91,7 +98,8 @@ function Navbar() {
                     Create an account
                   </button>
                 </Link>
-            
+
+               
                
               </div>
             </div>

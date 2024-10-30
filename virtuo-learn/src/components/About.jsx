@@ -69,6 +69,53 @@ function About() {
               </p>
             </div>
           </div>
+
+          <div className="text-center ">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking wide">
+              School
+              <span className="  font-serif  bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
+                {" "}
+                Vision
+              </span>
+
+              <div className="flex-1 p-6 rounded-lg ">
+              <p className="text-xl p-10 font-light">
+              <span className="text-blue-500 text-2xl font-serif">"</span>To empower learners worldwide by providing flexible, engaging, and high-quality education<br></br> accessible to everyone, anywhere. We envision a future where education transcends boundaries,<br></br> inspiring students to become critical thinkers, lifelong learners, and responsible global citizens. At Virtuo Learn,<br></br> we strive to foster curiosity, encourage innovation, and build a supportive online community that champions growth,<br></br> resilience, and the pursuit of knowledge.<span className="text-blue-500 text-xl font-serif">"</span>
+              </p>
+              </div>
+              
+            </h2>
+
+            <div className="text-center mt-20">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl tracking-wide">
+              Core
+              <span className="font-serif bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
+                {" "} Values
+              </span>
+            </h2>
+            <div className="flex flex-wrap justify-center gap-10 mt-10 px-6 lg:px-20">
+        
+              <div className="w-64 p-6 text-center rounded-lg shadow-md hover:shadow-lg transition-shadow">
+ 
+                <h5 className="text-xl font-semibold text-white mb-2">Excellence</h5>
+                <p className="text-neutral-300">We commit to delivering top-quality education that fosters growth and development.</p>
+              </div>
+
+
+              <div className="w-64 p-6 text-center  rounded-lg shadow-md hover:shadow-lg transition-shadow">
+        
+                <h5 className="text-xl font-semibold text-white mb-2">Innovation</h5>
+                <p className="text-neutral-300">We embrace creative solutions to make learning engaging and effective.</p>
+              </div>
+
+              <div className="w-64 p-6 text-center  rounded-lg shadow-md hover:shadow-lg transition-shadow">
+   
+                <h5 className="text-xl font-semibold text-white mb-2">Integrity</h5>
+                <p className="text-neutral-300">We prioritize honesty, respect, and responsibility in all our actions.</p>
+              </div>
+            </div>
+          </div>
+          </div>
         </motion.div>
       </div>
     </>

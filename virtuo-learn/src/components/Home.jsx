@@ -63,6 +63,49 @@ function Home() {
 
           <About />
           <Explore />
+
+          <div className="text-center mt-20">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl tracking-wide">
+                <span className="font-serif bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
+                  {" "} Testimonials
+                </span>
+              </h2>
+
+              {/* <h1 className="text-4xl sm:text-6xl lg:text-6xl font-serif text-left tracking-wide">
+                "Learning
+                <br />
+                <span className="bg-gradient-to-r underline decoration-wavy decoration-orange-600 from-blue-500 to-blue-800 text-transparent bg-clip-text">
+                  knows no boundaries"
+                </span>
+              </h1>
+              <h2 className="text-right text-2xl mt-4">- Natalie Panek</h2> */}
+
+              <div>
+                <p className="font-light text-[20px] p-5">“I used to dread math, but Virtuo Learn breaks things down so well. I can go over<br></br> the videos 
+                and notes as much as I want without feeling rushed. Now I’m<br></br> actually starting to like math!”</p>
+                <p>-Jenny, 16</p>
+              </div>
+
+              <div className="">
+                <p className="font-light text-[20px] p-5">“Virtuo Learn has been amazing because I can fit it around my schedule.<br></br> I play sports, so sometimes it’s hard to keep up with school, but now I can do lessons<br></br> whenever I have time.”
+                </p>
+                <p>-Nathan, 14</p>
+              </div>
+
+              <div>
+                <p className="font-light text-[20px] p-5">“With Virtuo Learn, I can pause, replay, and go back whenever I need to. I used to be afraid of<br></br> asking ‘dumb questions’ in class, but now I can go over stuff until I fully get it.
+                   I feel a lot more confident in<br></br> my classes now.”</p>
+                <p>-Matt, 17</p>
+              </div>
+
+              <div>
+                <p className="font-light text-[20px] p-5">“Before, I’d get bored so fast, but Virtuo Learn’s lessons are actually interesting. The videos are cool,
+                   and I like that I can<br></br> learn on my phone or laptop. It doesn’t feel like ‘school’ in a good way.”</p>
+                <p>-Lily, 15</p>
+              </div>
+
+          </div>
+          
       </div>
     </>
   );

@@ -9,6 +9,8 @@ import About from "./components/About";
 import "./App.css";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
+import Math from "./components/Subjects.jsx/Math";
+import Donate from "./components/Donate";
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/math" element={<Math />} />
       </Routes>
       <Footer />
     </Router>

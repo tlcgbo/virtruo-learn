@@ -29,6 +29,11 @@ function Signup() {
             </div>
 
             <div className="w-full flex flex-col">
+            <input
+                type="username"
+                placeholder="Username"
+                className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
+              />
               <input
                 type="email"
                 placeholder="Email"
@@ -37,6 +42,11 @@ function Signup() {
               <input
                 type="password"
                 placeholder="Password"
+                className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
+              />
+              <input
+                type="confirmPassword"
+                placeholder="Confirm Password"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
               />
             </div>
