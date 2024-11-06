@@ -45,9 +45,6 @@ function Navbar() {
             </div>
             <div className="hidden lg:flex justify-center space-x-12 items-center">
 
-            <Link to="/donate">
-                <button className="py-2 px-3 border rounded-md">Donate</button>
-              </Link>
 
               <Link to="/login">
                 <button className="py-2 px-3 border rounded-md">Sign In</button>

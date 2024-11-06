@@ -1,9 +1,35 @@
-import React from "react";
+import { useState } from "react";
 import picture from "../assets/picture.jpg";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { auth, provider } from "../firebase.config";
+import { signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import GoogleBtn from "./GoogleBtn";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 
-function Login () {
+const initialState = {
+  email: '',
+  password: '',
+}
+
+const Login = ({ setIsAuth }) => {
+
+    const [formData, setFormData] = useState(initialState);
+
+    const {email, password} = formData;
+
+    let navigate = useNavigate();
+
+    const validateForm = () => {
+      if(!email || !password){
+        toast.error("Please, fill in all input fields")
+      }
+    }
+
+   
+
     return(
         <>
              <div className="w-full min-h-screen flex flex-col md:flex-row items-start">

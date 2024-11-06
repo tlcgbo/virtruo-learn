@@ -1,11 +1,63 @@
-import React from "react";
+import { useState } from "react";
 import picture from "../assets/picture.jpg";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../firebase.config";
+import { toast } from "react-toastify";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import GoogleBtn from "./GoogleBtn";
 
-function Signup() {
+const initialState = {
+  username: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+}
+
+const Signup = ({setIsAuth}) => {
+
+  const [formData, setFormData] = useState(initialState);
+
+  const {username, email, password, confirmPassword} = formData;
+
+  let navigate = useNavigate();
+
+  const validateForm = () => {
+    if(!username || !password || !confirmPassword){
+      toast.error("Please, fill in all input fields")
+    }
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefaulr();
+
+    validateForm();
+
+    try {
+      if(username && email && password) {
+        const {user} = await createUserWithEmailAndPassword(
+          auth, email, password
+        );
+        await updateProfile(user, {displayName: `${username}`})
+        toast.success('signup successfully');
+        localStorage.setItem('isAuth', true);
+        setIsAuth(true);
+        navigate("/");
+      }
+    } catch (error) {
+      toast.error('user already exists');
+      console.log(error);
+    }
+  }
+
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.name]: e.target.value.trim()});
+  };
+
   return (
     <>
+      <div className="signupPage">
       <div className="w-full min-h-screen flex flex-col md:flex-row items-start">
         
         <div className="relative w-full md:w-1/2 h-64 md:h-full flex flex-col">
@@ -33,21 +85,29 @@ function Signup() {
                 type="username"
                 placeholder="Username"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
+                value={username}
+                onChange={handleChange}
               />
               <input
                 type="email"
                 placeholder="Email"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
+                value={email}
+                onChange={handleChange}
               />
               <input
                 type="password"
                 placeholder="Password"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
+                value={password}
+                onChange={handleChange}
               />
               <input
                 type="confirmPassword"
                 placeholder="Confirm Password"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
+                value={confirmPassword}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -58,6 +118,8 @@ function Signup() {
             </button>
           </div>
 
+          <GoogleBtn setIsAuth={setIsAuth} />
+
           <div className="w-full flex items-center justify-center">
             <p className="text-xs md:text-sm font-normal text-white">
               Have an account?<Link to="/login" className="font-semibold underline underline-offset-2 cursor-pointer"> Click here</Link>
@@ -65,6 +127,8 @@ function Signup() {
           </div>
         </motion.div>
       </div>
+      </div>
+      
     </>
   );
 }
