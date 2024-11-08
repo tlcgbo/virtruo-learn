@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import virtuolearn from "../assets/logo1.png"
 import logo from "../assets/start.png"
 import { Menu, X } from "lucide-react";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase.config";
 
-function Navbar() {
+function Navbar({handleSignOut, isAuth}) {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -16,7 +18,7 @@ function Navbar() {
       <nav className=" sticky top-0 z-50 py-3 backdrop-blur-lg border-b  border-neutral-700/80">
         <div className=" container px-4 mx-auto relative text-sm">
           <div className="flex justify-between items-center">
-            <ul className="hidden lg:flex font-serif text-[18px] space-x-12 text-left">
+            <ul className="hidden lg:flex font-serif text-[18px] p-10 space-x-12 text-left">
               <Link to="/">
                 <li className="hover:text-orange-600  mb-2">Home</li>
               </Link>
@@ -29,12 +31,6 @@ function Navbar() {
                 <li className="hover:text-orange-600 mb-2">Explore</li>
               </Link>
 
-              <Link to="/login">
-                <li className="hover:text-orange-600 mb-2">Login</li>
-              </Link>
-              <Link to="/signup">
-                <li className="hover:text-orange-600 mb-2">Signup</li>
-              </Link>
             </ul>
             <div className="flex items-center mr-28">
               <Link to="/">
@@ -46,14 +42,27 @@ function Navbar() {
             <div className="hidden lg:flex justify-center space-x-12 items-center">
 
 
-              <Link to="/login">
-                <button className="py-2 px-3 border rounded-md">Sign In</button>
-              </Link>
-              <Link to="/signup">
-                <button className="bg-gradient-to-r from-blue-600 to-blue-900 py-2 px-3 rounded-md">
-                  Create an account
-                </button>
-              </Link>
+              {
+                !isAuth ? (
+                  <>
+                    <Link to="/login">
+                      <button className="py-2 px-3 border rounded-md">Sign In</button>
+                    </Link>
+                    <Link to="/signup">
+                      <button className="bg-gradient-to-r from-blue-600 to-blue-900 py-2 px-3 rounded-md">
+                        Create an account
+                      </button>
+                    </Link>
+                  </>
+
+                ) : (
+                  <>
+                      <button onClick={handleSignOut} className="py-2 px-3 border rounded-md">Sign Out</button>
+                  </>
+                )
+              }
+
+
             </div>
             <div className="lg:hidden md:flex flex-col justify-end">
               <button onClick={toggleNavbar}>

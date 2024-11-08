@@ -28,8 +28,29 @@ const Login = ({ setIsAuth }) => {
       }
     }
 
-   
+   const handleSubmit = async (e) => {
+    e.preventDefault();
 
+    validateForm();
+    try{
+      if(email && password) {
+        const {user} = await signInWithEmailAndPassword(
+          auth, email, password
+        );
+        localStorage.setItem('isAuth', true);
+        toast.success('log in successfully');
+        setIsAuth(true);
+        navigate("/")
+      }
+    } catch (error) {
+      toast.error('invalid credentials');
+      console.log(error)
+    }
+   }
+
+   const handleChange = (e) => {
+    setFormData({...formData, [e.target.name]: e.target.value});
+   };
     return(
         <>
              <div className="w-full min-h-screen flex flex-col md:flex-row items-start">
@@ -57,13 +78,19 @@ const Login = ({ setIsAuth }) => {
             <div className="w-full flex flex-col">
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
+                value={email}
+                onChange={handleChange}
               />
               <input
                 type="password"
+                name="password"
                 placeholder="Password"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
+                value={password}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -73,6 +100,8 @@ const Login = ({ setIsAuth }) => {
               Login
             </button>
           </div>
+          
+          <GoogleBtn setIsAuth={setIsAuth} />
 
           <div className="w-full flex items-center justify-center">
             <p className="text-xs md:text-sm font-normal text-white">

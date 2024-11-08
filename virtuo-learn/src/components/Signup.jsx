@@ -30,7 +30,7 @@ const Signup = ({setIsAuth}) => {
     }
   }
   const handleSubmit = async (e) => {
-    e.preventDefaulr();
+    e.preventDefault();
 
     validateForm();
 
@@ -85,11 +85,13 @@ const Signup = ({setIsAuth}) => {
                 type="username"
                 placeholder="Username"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
+                name="username"
                 value={username}
                 onChange={handleChange}
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
                 value={email}
@@ -97,6 +99,7 @@ const Signup = ({setIsAuth}) => {
               />
               <input
                 type="password"
+                name="password"
                 placeholder="Password"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
                 value={password}
@@ -104,6 +107,7 @@ const Signup = ({setIsAuth}) => {
               />
               <input
                 type="confirmPassword"
+                name="confirmPassword"
                 placeholder="Confirm Password"
                 className="w-full text-white py-2 md:py-4 my-2 bg-transparent border-b border-white outline-none focus:outline-none"
                 value={confirmPassword}
@@ -113,7 +117,7 @@ const Signup = ({setIsAuth}) => {
           </div>
 
           <div className="w-full flex flex-col my-4">
-            <button className="w-full text-white bg-gradient-to-r from-blue-600 to-blue-900 rounded-md py-3 md:py-4 text-center flex items-center justify-center">
+            <button type="submit" className="w-full text-white bg-gradient-to-r from-blue-600 to-blue-900 rounded-md py-3 md:py-4 text-center flex items-center justify-center">
               Signup
             </button>
           </div>
