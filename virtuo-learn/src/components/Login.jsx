@@ -17,9 +17,6 @@ const Login = ({ setIsAuth }) => {
   const [formData, setFormData] = useState(initialState);
   const { email, password } = formData;
 
-  const [emailValid, setEmailValid] = useState(null);
-  const [passwordValid, setPasswordValid] = useState(null);
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -89,15 +86,7 @@ const Login = ({ setIsAuth }) => {
                 value={email}
                 onChange={handleChange}
               />
-              {emailValid !== null && (
-                <span
-                  className={`absolute right-2 text-xl ${
-                    emailValid ? "text-green-500" : "text-red-500"
-                  }`}
-                >
-                  {emailValid ? "✓" : "✗"}
-                </span>
-              )}
+             
             </div>
 
           
@@ -110,15 +99,7 @@ const Login = ({ setIsAuth }) => {
                 value={password}
                 onChange={handleChange}
               />
-              {passwordValid !== null && (
-                <span
-                  className={`absolute right-2 text-xl ${
-                    passwordValid ? "text-green-500" : "text-red-500"
-                  }`}
-                >
-                  {passwordValid ? "✓" : "✗"}
-                </span>
-              )}
+            
             </div>
 
             <div className="w-full flex flex-col my-4">
