@@ -22,4 +22,4 @@ const GoogleBtn = ({ setIsAuth }) => {
         </>
     )
 }
-export default GoogleBtn
+export default GoogleBtn;

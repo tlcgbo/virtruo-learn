@@ -2,80 +2,85 @@ import { useState } from "react";
 import picture from "../assets/picture.jpg";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { auth, provider } from "../firebase.config";
-import { signInWithPopup } from "firebase/auth";
+import { auth } from "../firebase.config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import GoogleBtn from "./GoogleBtn";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 
 const initialState = {
-  email: '',
-  password: '',
-}
+  email: "",
+  password: "",
+};
 
 const Login = ({ setIsAuth }) => {
+  const [formData, setFormData] = useState(initialState);
+  const { email, password } = formData;
 
-    const [formData, setFormData] = useState(initialState);
+  const [emailValid, setEmailValid] = useState(null);
+  const [passwordValid, setPasswordValid] = useState(null);
 
-    const {email, password} = formData;
+  const navigate = useNavigate();
 
-    let navigate = useNavigate();
-
-    const validateForm = () => {
-      if(!email || !password){
-        toast.error("Please, fill in all input fields")
-      }
-    }
-
-   const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    validateForm();
-    try{
-      if(email && password) {
-        const {user} = await signInWithEmailAndPassword(
-          auth, email, password
-        );
-        localStorage.setItem('isAuth', true);
-        toast.success('log in successfully');
-        setIsAuth(true);
-        navigate("/")
-      }
-    } catch (error) {
-      toast.error('invalid credentials');
-      console.log(error)
+  
+    if (!email || !password) {
+      toast.error("Please, fill in all input fields");
+      setEmailValid(email ? true : false);
+      setPasswordValid(password ? true : false);
+      return;
     }
-   }
 
-   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value});
-   };
-    return(
-        <>
-             <div className="w-full min-h-screen flex flex-col md:flex-row items-start">
-        
-        <div className="relative w-full md:w-1/2 h-64 md:h-full flex flex-col">
-          <img src={picture} className="w-full h-full object-cover" alt="" />
-        </div>
+    try {
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+      localStorage.setItem("isAuth", true);
+      toast.success("Log in successfully!");
+      setIsAuth(true);
+      navigate("/");
+    } catch (error) {
+      toast.error("Invalid credentials");
+      console.error(error);
+    }
+  };
 
-        <motion.div
-          className="w-full md:w-1/2 h-auto flex flex-col p-8 md:p-28 justify-between"
-          variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: 75 },
-          }}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.5, delay: 0.25 }}
-        >
-          <div className="w-full flex flex-col">
-            <div className="w-full flex flex-col mb-2">
-              <h3 className="text-xl md:text-4xl font-semibold mb-2">Login</h3>
-              <p className="text-sm md:text-base mb-2">Welcome back, Great to see you again!</p>
-            </div>
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
 
-            <div className="w-full flex flex-col">
+    if (name === "email") setEmailValid(value.trim() !== "");
+    if (name === "password") setPasswordValid(value.trim() !== "");
+  };
+
+  return (
+    <div className="w-full min-h-screen flex flex-col md:flex-row items-start">
+  
+      <div className="relative w-full md:w-1/2 h-64 md:h-full flex flex-col">
+        <img src={picture} className="w-full h-full object-cover" alt="Login" />
+      </div>
+
+      <motion.div
+        className="w-full md:w-1/2 h-auto flex flex-col p-8 md:p-28 justify-between"
+        variants={{
+          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: 75 },
+        }}
+        initial="hidden"
+        animate="visible"
+        transition={{ duration: 0.5, delay: 0.25 }}
+      >
+        <div className="w-full flex flex-col">
+          <div className="w-full flex flex-col mb-2">
+            <h3 className="text-xl md:text-4xl font-semibold mb-2">Login</h3>
+            <p className="text-sm md:text-base mb-2">
+              Welcome back, Great to see you again!
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit}>
+     
+            <div className="relative flex items-center">
               <input
                 type="email"
                 name="email"
@@ -84,6 +89,19 @@ const Login = ({ setIsAuth }) => {
                 value={email}
                 onChange={handleChange}
               />
+              {emailValid !== null && (
+                <span
+                  className={`absolute right-2 text-xl ${
+                    emailValid ? "text-green-500" : "text-red-500"
+                  }`}
+                >
+                  {emailValid ? "✓" : "✗"}
+                </span>
+              )}
+            </div>
+
+          
+            <div className="relative flex items-center">
               <input
                 type="password"
                 name="password"
@@ -92,28 +110,42 @@ const Login = ({ setIsAuth }) => {
                 value={password}
                 onChange={handleChange}
               />
+              {passwordValid !== null && (
+                <span
+                  className={`absolute right-2 text-xl ${
+                    passwordValid ? "text-green-500" : "text-red-500"
+                  }`}
+                >
+                  {passwordValid ? "✓" : "✗"}
+                </span>
+              )}
             </div>
-          </div>
 
-          <div className="w-full flex flex-col my-4">
-            <button className="w-full text-white bg-gradient-to-r  from-blue-600 to-blue-900 rounded-md py-3 md:py-4 text-center flex items-center justify-center">
-              Login
-            </button>
-          </div>
-          
-          <GoogleBtn setIsAuth={setIsAuth} />
+            <div className="w-full flex flex-col my-4">
+              <button className="w-full text-white bg-gradient-to-r from-blue-600 to-blue-900 rounded-md py-3 md:py-4 text-center flex items-center justify-center">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
 
-          <div className="w-full flex items-center justify-center">
-            <p className="text-xs md:text-sm font-normal text-white">
-              Don't have an account?<Link to="/signup" className="font-semibold underline underline-offset-2 cursor-pointer"> Click here</Link>
-            </p>
-          </div>
-        </motion.div>
-      </div>
-        </>
-    )
 
-}
+        <GoogleBtn setIsAuth={setIsAuth} />
 
-export default Login
-  
+        <div className="w-full flex items-center justify-center">
+          <p className="text-xs md:text-sm font-normal text-white">
+            Don't have an account?{" "}
+            <Link
+              to="/signup"
+              className="font-semibold underline underline-offset-2 cursor-pointer"
+            >
+              Click here
+            </Link>
+          </p>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default Login;
