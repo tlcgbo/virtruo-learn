@@ -34,7 +34,7 @@ function Home() {
               <h1 className="text-4xl sm:text-6xl lg:text-6xl font-serif text-left tracking-wide">
                 "Learning
                 <br />
-                <span className="bg-gradient-to-r underline decoration-wavy decoration-orange-600 from-blue-500 to-blue-800 text-transparent bg-clip-text">
+                <span className=" text-blue-700  bg-clip-text">
                   knows no boundaries"
                 </span>
               </h1>
