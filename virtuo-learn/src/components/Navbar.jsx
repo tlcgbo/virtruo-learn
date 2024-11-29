@@ -18,7 +18,7 @@ function Navbar({handleSignOut, isAuth}) {
       <nav className=" sticky top-0 z-50 py-3 backdrop-blur-lg border-b  border-neutral-700/80">
         <div className=" container px-4 mx-auto relative text-sm">
           <div className="flex justify-between items-center">
-            <ul className="hidden lg:flex font-serif text-[18px] p-10 space-x-12 text-left">
+            <ul className="hidden lg:flex text-serifs font-semibold text-[18px] p-10 space-x-12 text-left">
               <Link to="/">
                 <li className="hover:text-orange-600  mb-2">Home</li>
               </Link>

@@ -19,7 +19,7 @@ function About() {
         >
           <div className="text-center ">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking wide">
-              Why Virtuo
+              <span className="text-serifs font-bold">Why Virtuo</span>
               <span className="  font-serif  bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
                 {" "}
                 Learn works
@@ -72,7 +72,7 @@ function About() {
 
           <div className="text-center ">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl mt-10 lg:mt-20 tracking wide">
-              School
+            <span className="text-serifs font-bold">School</span>
               <span className="  font-serif  bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
                 {" "}
                 Vision
@@ -88,7 +88,7 @@ function About() {
 
             <div className="text-center mt-20">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl tracking-wide">
-              Core
+            <span className="text-serifs font-bold">Core</span>
               <span className="font-serif bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
                 {" "} Values
               </span>

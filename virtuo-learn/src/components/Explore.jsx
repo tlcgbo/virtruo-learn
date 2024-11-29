@@ -20,7 +20,7 @@ function Explore() {
         
         <div className="text-center">
           <h2 className="text-4xl font-serif sm:text-5xl lg:text-6xl tracking-wide">
-            Explore <span className="bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">Subjects</span>
+          <span className="text-serifs font-bold">Explore</span> <span className="bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">Subjects</span>
           </h2>
         </div>
 
@@ -46,9 +46,12 @@ function Explore() {
             <p className="text-lg text-neutral-300 mb-6">
               Reading Comprehension, Literature, Grammar and Usage, Writing Skills, Vocabulary, Spelling, Listening and Speaking
             </p>
+            <Link to="/english">
             <button className="bg-gradient-to-r from-blue-600 to-blue-900 py-2 px-4 rounded-md text-white">
               Get Started
             </button>
+            </Link>
+            
           </div>
 
         
@@ -58,9 +61,12 @@ function Explore() {
             <p className="text-lg text-neutral-300 mb-6">
               Scientific Method, Earth Science, Biology, Chemistry, Physics, Astronomy, Environmental Science
             </p>
+            <Link to="/science">
             <button className="bg-gradient-to-r from-blue-600 to-blue-900 py-2 px-4 rounded-md text-white">
               Get Started
             </button>
+            </Link>
+           
           </div>
 
        
@@ -70,9 +76,12 @@ function Explore() {
             <p className="text-lg text-neutral-300 mb-6">
               Intro to CS, Programming, Data Structures, Computer Architecture, Operating Systems, Databases, Web Development
             </p>
+            <Link to="/computing">
             <button className="bg-gradient-to-r from-blue-600 to-blue-900 py-2 px-4 rounded-md text-white">
               Get Started
             </button>
+            </Link>
+            
           </div>
 
         
@@ -82,9 +91,12 @@ function Explore() {
             <p className="text-lg text-neutral-300 mb-6">
               Language & Culture, Listening, Speaking, Reading, Vocabulary, Grammar, Writing, Conversational Practice
             </p>
+            <Link to="/languages">
             <button className="bg-gradient-to-r from-blue-600 to-blue-900 py-2 px-4 rounded-md text-white">
               Get Started
             </button>
+            </Link>
+            
           </div>
         </div>
       </div>

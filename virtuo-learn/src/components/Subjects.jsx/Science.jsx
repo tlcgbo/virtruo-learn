@@ -1,15 +1,16 @@
 import React from "react";
-import { PiMathOperationsFill } from "react-icons/pi";
+import { AiOutlineRead, AiOutlineCode, AiOutlineGlobal, AiOutlineExperiment } from "react-icons/ai";
+
 import { motion } from "framer-motion";
 
-function Math() {
+function Science() {
   return (
     <div className="min-h-screentext-serifs">
 
       <div className="text-center py-10">
-      <PiMathOperationsFill className="text-blue-600 text-6xl mx-auto mb-6" />
+      <AiOutlineExperiment className="text-blue-600 text-4xl mx-auto mb-6" />
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
-          Maths 
+          Science
         </h1> 
       </div>
       <motion.div
@@ -20,12 +21,12 @@ function Math() {
       >
         <div className="rounded-lg bg-blue-950 p-4">
           <h2 className="text-lg font-medium text-white">
-            Choose a unit (5)
+            Choose a unit (3)
           </h2>
           <ul className="mt-4 text-white">
               <li
                 className="flex justify-between items-center px-4 py-3 border-b last:border-none hover:bg-blue-800 rounded transition"
-              ><a href="">Geometry</a>
+              ><a href="">Biology</a>
                 <span className="text-white font-medium"></span>
                 <span className="text-gray-500 text-sm">
                   5 lessons
@@ -33,7 +34,7 @@ function Math() {
               </li>
               <li
                 className="flex justify-between items-center px-4 py-3 border-b last:border-none hover:bg-blue-800 rounded transition"
-              ><a href="">Algebra</a>
+              ><a href="">Chemistry</a>
                 <span className="text-white font-medium"></span>
                 <span className="text-gray-500 text-sm">
                   9 lessons
@@ -41,28 +42,13 @@ function Math() {
               </li>
               <li
                 className="flex justify-between items-center px-4 py-3 border-b last:border-none hover:bg-blue-800 rounded transition"
-              ><a href="">Calculus</a>
+              ><a href="">Phsyics</a>
                 <span className="text-white font-medium"></span>
                 <span className="text-gray-500 text-sm">
                   3 lessons
                 </span>
               </li>
-              <li
-                className="flex justify-between items-center px-4 py-3 border-b last:border-none hover:bg-blue-800 rounded transition"
-              ><a href="">Trigonometry</a>
-                <span className="text-white font-medium"></span>
-                <span className="text-gray-500 text-sm">
-                  1 lessons
-                </span>
-              </li>
-              <li
-                className="flex justify-between items-center px-4 py-3 border-b last:border-none hover:bg-blue-800 rounded transition"
-              ><a href="">Probability</a>
-                <span className="text-white font-medium"></span>
-                <span className="text-gray-500 text-sm">
-                  4 lessons
-                </span>
-              </li>
+            
           </ul>
         </div>
       </motion.div>
@@ -70,4 +56,4 @@ function Math() {
   );
 }
 
-export default Math;
+export default Science;

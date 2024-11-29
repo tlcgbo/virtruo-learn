@@ -1,15 +1,16 @@
 import React from "react";
-import { PiMathOperationsFill } from "react-icons/pi";
+import { AiOutlineRead, AiOutlineCode, AiOutlineGlobal, AiOutlineExperiment } from "react-icons/ai";
+
 import { motion } from "framer-motion";
 
-function Math() {
+function English() {
   return (
     <div className="min-h-screentext-serifs">
 
       <div className="text-center py-10">
-      <PiMathOperationsFill className="text-blue-600 text-6xl mx-auto mb-6" />
+      <AiOutlineRead className="text-blue-600 text-4xl mx-auto mb-6" />
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
-          Maths 
+          English
         </h1> 
       </div>
       <motion.div
@@ -25,7 +26,7 @@ function Math() {
           <ul className="mt-4 text-white">
               <li
                 className="flex justify-between items-center px-4 py-3 border-b last:border-none hover:bg-blue-800 rounded transition"
-              ><a href="">Geometry</a>
+              ><a href="">Grammar</a>
                 <span className="text-white font-medium"></span>
                 <span className="text-gray-500 text-sm">
                   5 lessons
@@ -33,7 +34,7 @@ function Math() {
               </li>
               <li
                 className="flex justify-between items-center px-4 py-3 border-b last:border-none hover:bg-blue-800 rounded transition"
-              ><a href="">Algebra</a>
+              ><a href="">Analysis</a>
                 <span className="text-white font-medium"></span>
                 <span className="text-gray-500 text-sm">
                   9 lessons
@@ -41,7 +42,7 @@ function Math() {
               </li>
               <li
                 className="flex justify-between items-center px-4 py-3 border-b last:border-none hover:bg-blue-800 rounded transition"
-              ><a href="">Calculus</a>
+              ><a href="">Creative Writing</a>
                 <span className="text-white font-medium"></span>
                 <span className="text-gray-500 text-sm">
                   3 lessons
@@ -49,7 +50,7 @@ function Math() {
               </li>
               <li
                 className="flex justify-between items-center px-4 py-3 border-b last:border-none hover:bg-blue-800 rounded transition"
-              ><a href="">Trigonometry</a>
+              ><a href="">Literature</a>
                 <span className="text-white font-medium"></span>
                 <span className="text-gray-500 text-sm">
                   1 lessons
@@ -57,7 +58,7 @@ function Math() {
               </li>
               <li
                 className="flex justify-between items-center px-4 py-3 border-b last:border-none hover:bg-blue-800 rounded transition"
-              ><a href="">Probability</a>
+              ><a href="">Oral</a>
                 <span className="text-white font-medium"></span>
                 <span className="text-gray-500 text-sm">
                   4 lessons
@@ -70,4 +71,4 @@ function Math() {
   );
 }
 
-export default Math;
+export default English;

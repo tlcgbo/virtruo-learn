@@ -10,6 +10,10 @@ import "./App.css";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
 import Math from "./components/Subjects.jsx/Math";
+import Science from "./components/Subjects.jsx/Science";
+import Computing from "./components/Subjects.jsx/Computing";
+import Languages from "./components/Subjects.jsx/Languages";
+import English from "./components/Subjects.jsx/English";
 import Donate from "./components/Donate";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase.config";
@@ -42,6 +46,10 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/math" element={<Math />} />
+        <Route path="/english" element={<English />} />
+        <Route path="/science" element={<Science />} />
+        <Route path="/computing" element={<Computing />} />
+        <Route path="/languages" element={<Languages />} />
       </Routes>
       <Footer />
     </Router>
