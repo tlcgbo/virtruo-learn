@@ -19,6 +19,8 @@ import { signOut } from "firebase/auth";
 import { auth } from "./firebase.config";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MathQuiz from "./components/Subjects.jsx/MathQuiz";
+import ScienceQuiz from "./components/Subjects.jsx/ScienceQuiz";
 
 function App() {
 
@@ -50,6 +52,9 @@ function App() {
         <Route path="/science" element={<Science />} />
         <Route path="/computing" element={<Computing />} />
         <Route path="/languages" element={<Languages />} />
+        <Route path="/mathQuiz" element={<MathQuiz />} />
+        <Route path="/scienceQuiz" element={<ScienceQuiz />} />
+
       </Routes>
       <Footer />
     </Router>

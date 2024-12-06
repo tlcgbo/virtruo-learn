@@ -150,12 +150,12 @@ const Signup = ({ setIsAuth }) => {
 
             <div className="w-full flex items-center justify-center">
               <p className="text-xs md:text-sm font-normal text-white">
-                Have an account?
-                <Link
+                Have an account? {" "}
+                <Link 
                   to="/login"
-                  className="font-semibold underline underline-offset-2 cursor-pointer"
+                  className="text-white font-semibold underline underline-offset-2 cursor-pointer"
                 >
-                  {" "}
+               
                   Click here
                 </Link>
               </p>

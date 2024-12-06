@@ -1,6 +1,7 @@
 import React from "react";
 import { PiMathOperationsFill } from "react-icons/pi";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Math() {
   return (
@@ -64,6 +65,19 @@ function Math() {
                 </span>
               </li>
           </ul>
+
+          <div className="w-full flex items-center justify-center">
+          <p className="text-xs md:text-sm font-normal text-white">
+            You done?{" "}
+            <Link
+              to="/mathQuiz"
+              className="font-semibold underline underline-offset-2 cursor-pointer"
+            >
+              Click here
+            </Link>
+          </p>
+        </div>
+
         </div>
       </motion.div>
     </div>
