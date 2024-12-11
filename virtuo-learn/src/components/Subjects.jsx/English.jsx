@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineRead, AiOutlineCode, AiOutlineGlobal, AiOutlineExperiment } from "react-icons/ai";
-
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 function English() {
@@ -65,6 +65,18 @@ function English() {
                 </span>
               </li>
           </ul>
+
+          <div className="w-full flex items-center justify-center">
+          <p className="text-xs md:text-sm font-normal text-white">
+            You done?{" "}
+            <Link
+              to="/englishQuiz"
+              className="font-semibold underline underline-offset-2 cursor-pointer"
+            >
+              Click here
+            </Link>
+          </p>
+        </div>
         </div>
       </motion.div>
     </div>

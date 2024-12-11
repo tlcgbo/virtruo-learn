@@ -1,30 +1,31 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function ScienceQuiz () {
+function ComputingQuiz () {
     const questions = [
         {
-          question: "How many groups are in the periodic table",
-          options: ["18", "7", "30", "4"],
-          correctAnswer: "18",
+          question: "What does CPU stand for?",
+          options: ["A)Central Processing Unit", "B) Computer Personal Unit", "C) Central Programming Unit", "D) Control Processing Unit"],
+          correctAnswer: "A) Central Processing Unit",
         },
         {
-          question: "What is mitosis",
-          options: ["A) process in which the world is becoming more interconnected",
-            "B) movement of water molecules",
-            "C) a type of cell division that results in two daughter cells", 
-            "D) one type of element."],
-          correctAnswer: "C) a type of cell division that results in two daughter cells",
+          question: "What does HTML stand for?",
+          options: ["A) HyperText Markup Language",
+            "B) HighText Markup Language",
+            "C) Hyperlink Text Management Language", 
+            "D) High Transfer Machine Learning"],
+          correctAnswer: "A) HyperText Markup Language",
         },
         {
-          question: "What does DNA stand for",
-          options: ["A) Denoxyide Alkaline", "B) Detricidic Acid", "C) Deoxyribonucleic Acid", "D) Delamyrionic Abase"],
-          correctAnswer: "C) Deoxyribonucleic Acid",
+          question: "What is the binary representation of the decimal number 10?",
+          options: ["A) 1000", "B) 1010", "C) 1100", "D) 1001"],
+          correctAnswer: "B) 1010",
         },
         {
-          question: "What is the main gas that makes up the Earth's atmosphere?",
-          options: ["A) Nitrogen", "B) Carbon Dioxide", "C) Hydrogen", "D) Oxygen"],
-          correctAnswer: "A) Nitrogen",
+          question: " Which of these is an example of a NoSQL database?",
+          options: ["A) MySQL", "B) PostgreSQL", "C) MongoDB", "D) Oracle"],
+          correctAnswer: "C) MongoDB",
         },
       ];
     
@@ -57,13 +58,13 @@ function ScienceQuiz () {
         setQuizComplete(false);
         setSelectedOption(null);
       };
-    
     return(
+        
         <>
               <div className="min-h-screen text-serifs text-gray-100 bg-gradient-to-b p-5">
       <div className="text-center py-10">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
-          Science Quiz
+          Computing Quiz
         </h1>
         <p className="text-xl  font-bold bg-gradient-to-r text-white text-transparent bg-clip-text">
             Please pick the correct answer.
@@ -117,5 +118,5 @@ function ScienceQuiz () {
 
 }
 
-export default ScienceQuiz;
+export default ComputingQuiz;
   

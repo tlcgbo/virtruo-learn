@@ -1,30 +1,31 @@
 import React from "react";
 import { useState } from "react";
 
-function ScienceQuiz () {
+function EnglishQuiz () {
+
     const questions = [
         {
-          question: "How many groups are in the periodic table",
-          options: ["18", "7", "30", "4"],
-          correctAnswer: "18",
+          question: "What technique is used in this sentence: Her heart was cold as stone",
+          options: ["A) similie", "B) metaphor", "C) juxtaposition", "D) pathetic fallacy"],
+          correctAnswer: "A) similie",
         },
         {
-          question: "What is mitosis",
-          options: ["A) process in which the world is becoming more interconnected",
-            "B) movement of water molecules",
-            "C) a type of cell division that results in two daughter cells", 
-            "D) one type of element."],
-          correctAnswer: "C) a type of cell division that results in two daughter cells",
+          question: "What technique is used in this sentence: The sun was smiling down upon him",
+          options: ["A) religios imagery",
+            "B) oxymoron",
+            "C) pathetic fallacy", 
+            "D) symbolism"],
+          correctAnswer: "C) pathetic fallacy",
         },
         {
-          question: "What does DNA stand for",
-          options: ["A) Denoxyide Alkaline", "B) Detricidic Acid", "C) Deoxyribonucleic Acid", "D) Delamyrionic Abase"],
-          correctAnswer: "C) Deoxyribonucleic Acid",
+          question: "What technique is used in this sentence: Black milk",
+          options: ["A) foreshadowing", "B) oxymoron", "C) allusion", "D) hyperbole"],
+          correctAnswer: "B) oxymoron",
         },
         {
-          question: "What is the main gas that makes up the Earth's atmosphere?",
-          options: ["A) Nitrogen", "B) Carbon Dioxide", "C) Hydrogen", "D) Oxygen"],
-          correctAnswer: "A) Nitrogen",
+          question: "What technique is used in this sentence: Vertically challenged?",
+          options: ["A) personification", "B) euphemism", "C) anthromorphism", "D) allegory"],
+          correctAnswer: "B) euphemism",
         },
       ];
     
@@ -57,13 +58,12 @@ function ScienceQuiz () {
         setQuizComplete(false);
         setSelectedOption(null);
       };
-    
     return(
         <>
               <div className="min-h-screen text-serifs text-gray-100 bg-gradient-to-b p-5">
       <div className="text-center py-10">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
-          Science Quiz
+          English Quiz
         </h1>
         <p className="text-xl  font-bold bg-gradient-to-r text-white text-transparent bg-clip-text">
             Please pick the correct answer.
@@ -117,5 +117,5 @@ function ScienceQuiz () {
 
 }
 
-export default ScienceQuiz;
+export default EnglishQuiz;
   

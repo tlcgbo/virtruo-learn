@@ -168,20 +168,6 @@ function Explore({isAuth}) {
             
           </div>
 
-        
-          <div className="flex flex-col  p-6 rounded-lg w-80 h-auto text-center shadow-md hover:shadow-xl transform hover:scale-105 transition-transform duration-200">
-            <AiOutlineGlobal className="text-blue-600 text-4xl mx-auto mb-4" />
-            <h3 className="text-2xl font-semibold mb-4 text-white">Languages</h3>
-            <p className="text-lg text-neutral-300 mb-6">
-              Language & Culture, Listening, Speaking, Reading, Vocabulary, Grammar, Writing, Conversational Practice
-            </p>
-            <Link to="/languages">
-            <button className="bg-gradient-to-r from-blue-600 to-blue-900 py-2 px-4 rounded-md text-white">
-              Get Started
-            </button>
-            </Link>
-            
-          </div>
           </div>
               </>
             )

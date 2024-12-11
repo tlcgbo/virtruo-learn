@@ -3,6 +3,7 @@ import { AiOutlineRead, AiOutlineCode, AiOutlineGlobal, AiOutlineExperiment } fr
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+
 function Science() {
   return (
     <div className="min-h-screentext-serifs">

@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 import Math from "./components/Subjects.jsx/Math";
 import Science from "./components/Subjects.jsx/Science";
 import Computing from "./components/Subjects.jsx/Computing";
-import Languages from "./components/Subjects.jsx/Languages";
+
 import English from "./components/Subjects.jsx/English";
 import Donate from "./components/Donate";
 import { signOut } from "firebase/auth";
@@ -21,6 +21,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MathQuiz from "./components/Subjects.jsx/MathQuiz";
 import ScienceQuiz from "./components/Subjects.jsx/ScienceQuiz";
+
+import ComputingQuiz from "./components/Subjects.jsx/ComputingQuiz";
+import EnglishQuiz from "./components/Subjects.jsx/EnglishQuiz";
 
 function App() {
 
@@ -51,10 +54,12 @@ function App() {
         <Route path="/english" element={<English />} />
         <Route path="/science" element={<Science />} />
         <Route path="/computing" element={<Computing />} />
-        <Route path="/languages" element={<Languages />} />
+
         <Route path="/mathQuiz" element={<MathQuiz />} />
         <Route path="/scienceQuiz" element={<ScienceQuiz />} />
 
+        <Route path="/computingQuiz" element={<ComputingQuiz />} />
+        <Route path="/englishQuiz" element={<EnglishQuiz />} />
       </Routes>
       <Footer />
     </Router>

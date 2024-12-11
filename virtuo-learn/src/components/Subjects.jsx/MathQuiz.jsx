@@ -60,6 +60,9 @@ function MathQuiz() {
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
           Maths Quiz
         </h1>
+        <p className="text-xl  font-bold bg-gradient-to-r text-white text-transparent bg-clip-text">
+            Please pick the correct answer.
+        </p>
 
         {!quizComplete ? (
           <div className="mt-8">
