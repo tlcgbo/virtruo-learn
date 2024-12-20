@@ -62,7 +62,6 @@ function Home() {
         </motion.div>
 
           <About />
-          <Explore />
 
           <div className="text-center mt-20">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl tracking-wide">

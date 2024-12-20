@@ -27,9 +27,7 @@ function Navbar({handleSignOut, isAuth}) {
                 <li className="hover:text-orange-600 mb-2">About</li>
               </Link>
 
-              <Link to="/explore">
-                <li className="hover:text-orange-600 mb-2">Explore</li>
-              </Link>
+          
 
             </ul>
             <div className="flex items-center mr-28">
@@ -57,7 +55,13 @@ function Navbar({handleSignOut, isAuth}) {
 
                 ) : (
                   <>
-                      <button onClick={handleSignOut} className="py-2 px-3 border rounded-md">Sign Out</button>
+                    <ul className="hidden lg:flex text-serifs font-semibold text-[18px] p-10 space-x-12 text-left">
+                      <Link to="/explore">
+                        <li className="hover:text-orange-600 mb-2">Explore</li>
+                      </Link>
+                    </ul>
+
+                    <button onClick={handleSignOut} className="py-2 px-3 border rounded-md">Sign Out</button>
                   </>
                 )
               }
