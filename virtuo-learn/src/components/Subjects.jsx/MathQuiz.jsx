@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { db, auth } from "../../firebase.config";
+import { collection, addDoc } from "firebase/firestore";
 
 function MathQuiz() {
   const questions = [
@@ -54,6 +56,15 @@ function MathQuiz() {
     setSelectedOption(null);
   };
 
+  const mathCollectionRef = collection(db, "math")
+  const registerResults = async (e) => {
+    e.preventDefault();
+    await addDoc(mathCollectionRef, {
+      score,
+      author: {name: auth.currentUser.displayName, id: auth.currentUser.uid }
+    })
+  }
+
   return (
     <div className="min-h-screen text-serifs text-gray-100 bg-gradient-to-b  p-5">
       <div className="text-center py-10">
@@ -65,7 +76,7 @@ function MathQuiz() {
         </p>
 
         {!quizComplete ? (
-          <div className="mt-8">
+          <div className="mt-8" onSubmit={registerResults}>
             <h2 className="text-2xl mb-6">{questions[currentQuestion].question}</h2>
             <div className="space-y-4">
               {questions[currentQuestion].options.map((option, index) => (

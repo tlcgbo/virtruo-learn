@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { PiMathOperationsFill } from "react-icons/pi";
 import { AiOutlineRead, AiOutlineCode, AiOutlineGlobal, AiOutlineExperiment } from "react-icons/ai";
 import { motion } from "framer-motion";
-import { auth } from "../firebase.config";
+import { auth, db } from "../firebase.config";
 import { useNavigate } from "react-router-dom";
+
 
 function Explore({isAuth}) {
   return (
