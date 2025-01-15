@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { db, auth } from "../../firebase.config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 function MathQuiz() {
   const questions = [
@@ -46,6 +46,7 @@ function MathQuiz() {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setQuizComplete(true);
+      registerResults(); // Save results when quiz is finished
     }
   };
 
@@ -56,27 +57,38 @@ function MathQuiz() {
     setSelectedOption(null);
   };
 
-  const mathCollectionRef = collection(db, "math")
-  const registerResults = async (e) => {
-    e.preventDefault();
-    await addDoc(mathCollectionRef, {
-      score,
-      author: {name: auth.currentUser.displayName, id: auth.currentUser.uid }
-    })
-  }
+  const registerResults = async () => {
+    const user = auth.currentUser;
+
+    if (user) {
+      const mathCollectionRef = collection(db, "math");
+      try {
+        await addDoc(mathCollectionRef, {
+          score,
+          author: { name: user.displayName, id: user.uid },
+          Timestamp: new Date(),
+        });
+        console.log("Results saved successfully");
+      } catch (error) {
+        console.error("Error saving results: ", error);
+      }
+    } else {
+      console.error("No user signed in to save results");
+    }
+  };
 
   return (
-    <div className="min-h-screen text-serifs text-gray-100 bg-gradient-to-b  p-5">
+    <div className="min-h-screen text-serifs text-gray-100 bg-gradient-to-b p-5">
       <div className="text-center py-10">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
           Maths Quiz
         </h1>
-        <p className="text-xl  font-bold bg-gradient-to-r text-white text-transparent bg-clip-text">
-            Please pick the correct answer.
+        <p className="text-xl font-bold bg-gradient-to-r text-white text-transparent bg-clip-text">
+          Please pick the correct answer.
         </p>
 
         {!quizComplete ? (
-          <div className="mt-8" onSubmit={registerResults}>
+          <div className="mt-8">
             <h2 className="text-2xl mb-6">{questions[currentQuestion].question}</h2>
             <div className="space-y-4">
               {questions[currentQuestion].options.map((option, index) => (

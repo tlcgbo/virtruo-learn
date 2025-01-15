@@ -1,5 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { db, auth } from "../../firebase.config";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 function ScienceQuiz () {
     const questions = [
@@ -48,6 +49,7 @@ function ScienceQuiz () {
           setCurrentQuestion(currentQuestion + 1);
         } else {
           setQuizComplete(true);
+          registerResults();
         }
       };
     
@@ -58,6 +60,26 @@ function ScienceQuiz () {
         setSelectedOption(null);
       };
     
+      const registerResults = async () => {
+          const user = auth.currentUser;
+      
+          if (user) {
+            const mathCollectionRef = collection(db, "science");
+            try {
+              await addDoc(mathCollectionRef, {
+                score,
+                author: { name: user.displayName, id: user.uid },
+                Timestamp: new Date(),
+              });
+              console.log("Results saved successfully");
+            } catch (error) {
+              console.error("Error saving results: ", error);
+            }
+          } else {
+            console.error("No user signed in to save results");
+          }
+        };
+      
     return(
         <>
               <div className="min-h-screen text-serifs text-gray-100 bg-gradient-to-b p-5">
