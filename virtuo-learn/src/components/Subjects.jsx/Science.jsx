@@ -2,9 +2,37 @@ import React from "react";
 import { AiOutlineRead, AiOutlineCode, AiOutlineGlobal, AiOutlineExperiment } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import { db, auth } from "../../firebase.config";
 
+const Science = ({ isAuth }) => {
 
-function Science() {
+    const [scienceLists, setScienceList] = useState([]);
+    const scienceCollectionRef = collection(db, "science");
+
+    useEffect(() => {
+            const getScience = async () => {
+              try {
+                const data = await getDocs(scienceCollectionRef);
+                setScienceList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+              } catch (error) {
+                console.error("Error fetching Science data:", error);
+              }
+            };
+            getScience();
+          }, []);
+
+          const deleteScience = async (id) => {
+                     try {
+                       const scienceDoc = doc(db, "science", id);
+                       await deleteDoc(scienceDocathDoc);
+                       setScienceList((prev) => prev.filter((item) => item.id !== id));
+                     } catch (error) {
+                       console.error("Error deleting Science document:", error);
+                     }
+                   }; 
+
   return (
     <div className="min-h-screentext-serifs">
 
@@ -62,6 +90,36 @@ function Science() {
             </Link>
           </p>
         </div>
+
+
+
+           <div className="w-full min-h-[calc(100vh - 80px)] h-auto flex flex-col items-center py-[12px]">
+                                {scienceLists.length === 0 ? (
+                                  <p className="text-white">No results available.</p>
+                                ) : (
+                                  scienceLists.map((science) => (
+                                    <div
+                                      key={science.id}
+                                      className="w-[65vw] h-auto max-h-[600px] shadow-2xl m-[20px] p-[20px] bg-blue-900 text-white"
+                                    >
+                                      <div>
+                                        {isAuth &&
+                                          science.author?.id === auth.currentUser?.uid && (
+                                            <button
+                                              onClick={() => deleteScience(science.id)}
+                                            >
+                                              🗑️
+                                            </button>
+                                          )}
+                                      </div>
+                                      <div className="h-[60%] max-h-[400px] w-[100%] overflow-hidden overflow-y-auto scroll-smooth">
+                                        <h1>Results: {science.score || "No score available"}</h1>
+                                        <h3>@{science.author?.name || "Unknown"}</h3>
+                                      </div>
+                                    </div>
+                                  ))
+                                )}
+                              </div>
         </div>
       </motion.div>
     </div>

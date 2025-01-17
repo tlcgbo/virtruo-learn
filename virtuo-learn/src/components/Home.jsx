@@ -10,22 +10,7 @@ import Explore from "./Explore";
 
 const Home = ({ isAuth }) => {
 
-    const [resultLists, setResultLists] = useState([])
-
-    const resultCollectionRef = collection(db, "math", "science", "computing")
-
-    useEffect(() => {
-      const getResults = async () => {
-        const data = await getDocs(resultCollectionRef)
-        setResultLists(data.docs.map((doc) => ({...doc.data(), id:doc.id})))
-      }
-      getResults();
-    }, [])
-
-    const deleteResults = async (id) => {
-      const resultDoc = doc(db, "math", "science", "english", "computing", id)
-      await deleteDoc(resultDoc)
-    }
+   
   return (
     <>
       <div className="flex  flex-col items-center mt-6 lg:mt-20">
@@ -123,24 +108,6 @@ const Home = ({ isAuth }) => {
                 <p>-Lily, 15</p>
               </div>
               
-
-              <div className="w-[100%]  min-h-[calc(100vh - 80px)] h-auto flex flex-col items-center py-[120px]">
-                {resultLists.map((result) => {
-                  return(
-                    <div key={result.id} className='w-[65vw] h-[auto] max-h-[600px] shadow-2xl  m-[20px] p-[20px] bg-blue-900 text-white'>
-
-                      <div className="">
-                        {isAuth && result.author.id === auth.currentUser.uid && <button onClick={() => {deleteResults(result.id)} }> &#128465; </button>}
-                      </div>
-
-                      <div className='h-[60%] max-h-[400px] w-[100%] overflow-hidden overflow-y-auto scroll-smooth'>
-                        <h1>Score: {result}</h1>
-                        <h3>@result.author?.name</h3>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
 
 
           </div>

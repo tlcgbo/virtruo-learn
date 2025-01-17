@@ -2,8 +2,37 @@ import React from "react";
 import { PiMathOperationsFill } from "react-icons/pi";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import { db, auth } from "../../firebase.config";
+import { useState, useEffect } from "react";
 
-function Math() {
+const Math = ({ isAuth }) => {
+    
+    const [mathLists, setMathList] = useState([]);
+    const mathCollectionRef = collection(db, "math");
+
+    useEffect(() => {
+        const getMath = async () => {
+          try {
+            const data = await getDocs(mathCollectionRef);
+            setMathList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+          } catch (error) {
+            console.error("Error fetching Math data:", error);
+          }
+        };
+        getMath();
+      }, []);
+
+       const deleteMath = async (id) => {
+           try {
+             const mathDoc = doc(db, "math", id);
+             await deleteDoc(mathDocathDoc);
+             setMathList((prev) => prev.filter((item) => item.id !== id));
+           } catch (error) {
+             console.error("Error deleting Math document:", error);
+           }
+         }; 
+
   return (
     <div className="min-h-screentext-serifs">
 
@@ -77,7 +106,34 @@ function Math() {
             </Link>
           </p>
         </div>
-
+            
+                      <div className="w-full min-h-[calc(100vh - 80px)] h-auto flex flex-col items-center py-[12px]">
+                        {mathLists.length === 0 ? (
+                          <p className="text-white">No results available.</p>
+                        ) : (
+                          mathLists.map((math) => (
+                            <div
+                              key={math.id}
+                              className="w-[65vw] h-auto max-h-[600px] shadow-2xl m-[20px] p-[20px] bg-blue-900 text-white"
+                            >
+                              <div>
+                                {isAuth &&
+                                  math.author?.id === auth.currentUser?.uid && (
+                                    <button
+                                      onClick={() => deleteMath(math.id)}
+                                    >
+                                      🗑️
+                                    </button>
+                                  )}
+                              </div>
+                              <div className="h-[60%] max-h-[400px] w-[100%] overflow-hidden overflow-y-auto scroll-smooth">
+                                <h1>Results: {math.score || "No score available"}</h1>
+                                <h3>@{math.author?.name || "Unknown"}</h3>
+                              </div>
+                            </div>
+                          ))
+                        )}
+                      </div>
         </div>
       </motion.div>
     </div>
